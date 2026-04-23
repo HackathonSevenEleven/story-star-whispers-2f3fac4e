@@ -1,0 +1,10 @@
+project_id = "quuvxrnqhsoswuayblgz"
+
+[functions.clone-voice]
+verify_jwt = false
+
+[functions.generate-story]
+verify_jwt = false
+
+[functions.generate-audio]
+verify_jwt = false

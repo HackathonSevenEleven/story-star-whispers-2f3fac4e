@@ -1,0 +1,219 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   LULLABY DESIGN SYSTEM — dreamy, magical, Pixar-quality
+   All colors HSL only. Use semantic tokens in components.
+   ============================================================ */
+
+@layer base {
+  :root {
+    /* Core (light mode = a soft dawn theme; main app uses dark night-sky) */
+    --background: 250 60% 98%;
+    --foreground: 250 40% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 250 40% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 250 40% 12%;
+
+    --primary: 258 55% 25%;            /* deep purple */
+    --primary-foreground: 45 90% 92%;
+
+    --secondary: 340 80% 88%;          /* warm pink */
+    --secondary-foreground: 258 55% 20%;
+
+    --muted: 250 30% 94%;
+    --muted-foreground: 250 15% 45%;
+
+    --accent: 45 85% 60%;              /* gold */
+    --accent-foreground: 258 55% 15%;
+
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 250 30% 88%;
+    --input: 250 30% 88%;
+    --ring: 280 70% 60%;
+
+    --radius: 1.25rem;
+
+    /* Magical palette tokens — warmer, friendlier */
+    --night: 250 55% 14%;              /* softer indigo-violet */
+    --night-deep: 252 60% 10%;
+    --dusk: 262 50% 24%;
+    --plum: 285 50% 38%;
+    --pink: 345 95% 82%;
+    --pink-soft: 345 100% 94%;
+    --gold: 40 100% 72%;               /* creamier */
+    --gold-soft: 45 100% 86%;
+    --cyan-soft: 195 85% 85%;
+    --moon: 50 100% 92%;
+
+    /* Gradients — softer, warmer */
+    --gradient-night: radial-gradient(ellipse at top, hsl(265 55% 26%) 0%, hsl(252 60% 14%) 55%, hsl(250 65% 9%) 100%);
+    --gradient-aurora: linear-gradient(135deg, hsl(285 75% 70%) 0%, hsl(335 90% 78%) 50%, hsl(40 100% 78%) 100%);
+    --gradient-dream: linear-gradient(135deg, hsl(265 75% 72%), hsl(340 95% 82%));
+    --gradient-moon: radial-gradient(circle, hsl(50 100% 95%) 0%, hsl(45 100% 82% / 0.5) 50%, transparent 70%);
+    --gradient-card: linear-gradient(135deg, hsl(265 55% 24% / 0.55), hsl(290 60% 30% / 0.4));
+
+    /* Shadows / glows — softer */
+    --glow-gold: 0 0 50px hsl(42 95% 70% / 0.35), 0 0 100px hsl(42 95% 70% / 0.18);
+    --glow-pink: 0 0 50px hsl(340 95% 78% / 0.4), 0 0 100px hsl(340 95% 78% / 0.18);
+    --glow-purple: 0 0 70px hsl(280 75% 65% / 0.4);
+    --shadow-dream: 0 24px 70px -18px hsl(265 70% 30% / 0.5);
+    --shadow-soft: 0 12px 45px -12px hsl(265 50% 20% / 0.35);
+
+    /* Sidebar */
+    --sidebar-background: 245 70% 6%;
+    --sidebar-foreground: 250 30% 88%;
+    --sidebar-primary: 280 70% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 258 50% 14%;
+    --sidebar-accent-foreground: 45 90% 85%;
+    --sidebar-border: 258 40% 18%;
+    --sidebar-ring: 280 70% 60%;
+  }
+
+  .dark {
+    --background: 245 70% 5%;
+    --foreground: 250 30% 95%;
+
+    --card: 250 50% 10%;
+    --card-foreground: 250 30% 95%;
+
+    --popover: 250 50% 10%;
+    --popover-foreground: 250 30% 95%;
+
+    --primary: 280 70% 65%;
+    --primary-foreground: 245 70% 8%;
+
+    --secondary: 258 40% 18%;
+    --secondary-foreground: 250 30% 95%;
+
+    --muted: 250 30% 14%;
+    --muted-foreground: 250 20% 70%;
+
+    --accent: 42 95% 65%;
+    --accent-foreground: 245 70% 8%;
+
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 258 40% 18%;
+    --input: 258 40% 18%;
+    --ring: 280 70% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Quicksand', system-ui, sans-serif;
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  h1, h2, h3, h4, h5, h6, .font-display {
+    font-family: 'Fraunces', Georgia, serif;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer utilities {
+  .bg-night {
+    background: var(--gradient-night);
+  }
+  .bg-aurora {
+    background: var(--gradient-aurora);
+  }
+  .bg-dream {
+    background: var(--gradient-dream);
+  }
+  .bg-moon {
+    background: var(--gradient-moon);
+  }
+  .bg-glass {
+    background: var(--gradient-card);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+  .glow-gold { box-shadow: var(--glow-gold); }
+  .glow-pink { box-shadow: var(--glow-pink); }
+  .glow-purple { box-shadow: var(--glow-purple); }
+  .shadow-dream { box-shadow: var(--shadow-dream); }
+  .shadow-soft { box-shadow: var(--shadow-soft); }
+
+  .text-gradient-aurora {
+    background: var(--gradient-aurora);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .text-gradient-dream {
+    background: var(--gradient-dream);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .text-gradient-gold {
+    background: linear-gradient(135deg, hsl(45 100% 80%), hsl(42 95% 60%));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+/* ============================================================
+   ANIMATIONS — twinkling stars, floating moon, drifting clouds
+   ============================================================ */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.1); }
+}
+@keyframes float-soft {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0) translateX(0); }
+  33% { transform: translateY(-20px) translateX(10px); }
+  66% { transform: translateY(10px) translateX(-15px); }
+}
+@keyframes drift {
+  0% { transform: translateX(-10%); }
+  100% { transform: translateX(110%); }
+}
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+@keyframes sparkle {
+  0%, 100% { opacity: 0; transform: scale(0); }
+  50% { opacity: 1; transform: scale(1); }
+}
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-twinkle { animation: twinkle 3s ease-in-out infinite; }
+.animate-float-soft { animation: float-soft 4s ease-in-out infinite; }
+.animate-float-slow { animation: float-slow 12s ease-in-out infinite; }
+.animate-drift { animation: drift 60s linear infinite; }
+.animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
+.animate-sparkle { animation: sparkle 2s ease-in-out infinite; }
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent, hsl(45 100% 80% / 0.3), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
